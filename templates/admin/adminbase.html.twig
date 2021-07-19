@@ -20,7 +20,7 @@
 <body>
 <nav class="navbar navbar-expand navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ path('home') }}">
+        <a class="navbar-brand" href="{{ path('admin_home') }}">
             Admin Panel
             <i class="fa fa-book " aria-hidden="true"></i>
         </a>
@@ -36,7 +36,7 @@
                     <a class="nav-link active" aria-current="page" href="{{ path('admin_user') }}">Пользователи</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ path('home') }}">Выход на главную</a>
+                    <a class="nav-link active" aria-current="page" target="_blank" href="{{ path('home') }}">Выход на главную</a>
                 </li>
             </ul>
             <form class="d-flex">
