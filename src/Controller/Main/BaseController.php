@@ -14,4 +14,5 @@ class BaseController extends AbstractController
             'title' => 'Сайт mysite '
         ];
     }
+
 }
