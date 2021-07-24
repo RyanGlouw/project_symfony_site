@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class BaseController extends AbstractController
 {
-    public function renderDefault()
+    public function renderDefault() // рендер на главную страницу
     {
         return [
             'title' => 'Сайт mysite '

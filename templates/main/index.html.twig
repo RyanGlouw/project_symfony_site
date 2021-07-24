@@ -28,7 +28,7 @@
 {% endblock %}
 {% block addJs %}
     <script>
-        Vue.options.delimiters = ['[[',']]'];
+        Vue.options.delimiters = ['[[',']]']; // позволяет передавать обьекты в переменные напрямую в twig
         let app = new Vue({
             el: '#app',
              data: {

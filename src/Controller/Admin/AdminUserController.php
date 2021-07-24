@@ -20,10 +20,10 @@ class AdminUserController extends AdminBaseController
     public function index()
     {
 // обращаюсь к сущности User для выгрузки пользователей
-        $users = $this->getDoctrine()->getRepository(User::class)->findAll();
+        $users = $this->getDoctrine()->getRepository(User::class)->findAll(); // указываю класс с которого буду выгружать пользователей
         $forRender = parent::renderDefault();
         $forRender['title'] = 'Пользователи'; // меняю заголовок на пользователей
-        $forRender['users'] = $users;
+        $forRender['users'] = $users; // массив с пользователями
         return $this->render('admin/user/index.html.twig', $forRender);
     }
 

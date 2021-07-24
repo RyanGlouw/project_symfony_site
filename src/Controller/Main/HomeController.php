@@ -13,8 +13,7 @@ class HomeController extends BaseController
      */
     public function index()
     {
-        $forRender = parent::renderDefault();
-        $forRender['arr'] = [1,2];
+        $forRender = parent::renderDefault(); // рендер из базового контроллера
         return $this->render('main/index.html.twig', $forRender);
     }
 
