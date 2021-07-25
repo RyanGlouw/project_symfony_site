@@ -36,7 +36,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $password;
 
-    private $plainPassword;
+    private $plainPassword; // проверка пароля
 
 
     public function getPlainPassword()
