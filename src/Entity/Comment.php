@@ -72,7 +72,7 @@ class Comment
         return $this;
     }
 
-    public function getCreateAt(): ?\DateTimeImmutable
+    public function getCreateAt(): ?\DateTime
     {
         return $this->create_at;
     }
@@ -82,7 +82,7 @@ class Comment
         $this->create_at = new \DateTime();
     }
 
-    public function setCreateAt(\DateTimeImmutable $create_at): self
+    public function setCreateAt(\DateTime $create_at): self
     {
         $this->create_at = $create_at;
 

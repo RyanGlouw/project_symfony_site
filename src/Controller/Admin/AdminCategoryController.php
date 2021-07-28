@@ -52,18 +52,42 @@ class AdminCategoryController extends AdminBaseController
             return $this->redirectToRoute('admin_category');
         }
         $forRender = parent::renderDefault();
-        $forRender['title'] = 'Создание поста';
+        $forRender['title'] = 'Создание категории';
         $forRender['form'] = $form->createView();
         return $this->render('admin/category/form.html.twig', $forRender);
     }
 
     /**
-     * @Route("/admin/category/update/{$id}", name="admin_category_update")
+     * @Route("/admin/category/update/{id}", name="admin_category_update")
      * @param int $id
      * @param Request $request
+     * @return RedirectResponse|Response
      */
     public function update(int $id, Request $request)
     {
-        
+        $em = $this->getDoctrine()->getManager();
+        $category = $this->getDoctrine()->getRepository(Category::class)
+            ->find($id);
+        $form = $this->createForm(CategoryType::class, $category);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            if ($form->get('save')->isClicked())
+            {
+                $category->setUpdateAtValue();
+                $this->addFlash('success', 'Категория обновлена');
+            }
+            if ($form->get('delete')->isClicked())
+            {
+                $em->remove($category);
+                $this->addFlash('success', 'Категория удалена');
+            }
+            $em->flush();
+            return $this->redirectToRoute('admin_category');
+        }
+        $forRender = parent::renderDefault();
+        $forRender['title'] = 'Редактирование категории';
+        $forRender['form'] = $form->createView();
+        return $this->render('admin/category/form.html.twig', $forRender);
     }
 }

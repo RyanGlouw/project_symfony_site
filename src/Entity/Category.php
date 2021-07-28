@@ -80,7 +80,7 @@ class Category
         return $this;
     }
 
-    public function getCreateAt(): ?\DateTimeImmutable
+    public function getCreateAt(): ?\DateTime
     {
         return $this->create_at;
     }
@@ -90,14 +90,14 @@ class Category
         $this->create_at = new \DateTime();
     }
 
-    public function setCreateAt(\DateTimeImmutable $create_at): self
+    public function setCreateAt(\DateTime $create_at): self
     {
         $this->create_at = $create_at;
 
         return $this;
     }
 
-    public function getUpdateAt(): ?\DateTimeImmutable
+    public function getUpdateAt(): ?\DateTime
     {
         return $this->update_at;
     }
@@ -107,7 +107,7 @@ class Category
         $this->update_at = new \DateTime();
     }
 
-    public function setUpdateAt(\DateTimeImmutable $update_at): self
+    public function setUpdateAt(\DateTime $update_at): self
     {
         $this->update_at = $update_at;
 

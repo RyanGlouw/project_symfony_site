@@ -39,7 +39,13 @@
                 <h2>Список категорий</h2>
                 <ul>
                     {% for category_item in category %}
-                        <li>{{ category_item.title }}</li>
+                        <li>
+                            {{ category_item.title }}
+                            <a href="{{ path('admin_category_update', {'id': category_item.id }) }}
+                                " class="btn-link">
+                                Редактировать
+                            </a>
+                        </li>
                     {% endfor %}
                 </ul>
             </div>

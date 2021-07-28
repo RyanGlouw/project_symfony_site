@@ -37,13 +37,13 @@ class CategoryType extends AbstractType
             ->add('save', SubmitType::class, array(
                 'label' => 'Сохранить',
                 'attr' => [
-                    'class' => 'btn btn-success'
+                    'class' => 'btn btn-success mb-1'
                 ]
             ))
             ->add('delete', SubmitType::class, array(
                 'label' => 'Удалить',
                 'attr' => [
-                    'class' => 'btn btn-danger'
+                    'class' => 'btn btn-danger '
                 ]
             ));
         ;
