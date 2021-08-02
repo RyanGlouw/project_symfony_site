@@ -7,6 +7,7 @@ namespace App\Controller\Admin;
 use App\Entity\Category;
 use App\Entity\Post;
 use App\Form\PostType;
+use App\Service\FileManagerServiceInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -35,7 +36,7 @@ class AdminPostController extends AdminBaseController
      * @param Request $request
      * @return RedirectResponse|Response
      */
-    public function create(Request $request)
+    public function create(Request $request, FileManagerServiceInterface $fileManagerService)
     {
         $em = $this->getDoctrine()->getManager();
         $post = new Post();
@@ -43,6 +44,11 @@ class AdminPostController extends AdminBaseController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid())
         {
+            $image = $form->get('image')->getData();
+            if ($image)
+            {
+                $fileName = $fileManagerService->imagePostUpload($image);
+            }
             // реализация создания поста при клике на кнопку
             $post->setCreateAtValue();
             $post->setUpdateAtValue();
