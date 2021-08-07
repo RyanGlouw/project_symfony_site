@@ -31,7 +31,7 @@ class FileManagerService implements FileManagerServiceInterface
         $fileName = uniqid() . '.' . $file->guessExtension();
 
         try {
-            $file->move($this->postImageDirectory(), $fileName);
+            $file->move($this->getPostImageDirectory(), $fileName);
         } catch (FileException $exception) {
             return $exception;
         }

@@ -11,7 +11,7 @@ class AdminBaseController extends AbstractController
     public function renderDefault() // рендер страницы админа
     {
         return [
-            'title' => 'Админка'
+            'title' => 'Админ панель'
         ];
     }
 }

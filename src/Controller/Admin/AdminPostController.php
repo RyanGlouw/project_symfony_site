@@ -36,7 +36,7 @@ class AdminPostController extends AdminBaseController
      * @param Request $request
      * @return RedirectResponse|Response
      */
-    public function create(Request $request, FileManagerServiceInterface $fileManagerService)
+    public function create(Request $request, FileManagerServiceInterface $fileManagerService) // подключение интерфейса
     {
         $em = $this->getDoctrine()->getManager();
         $post = new Post();
@@ -47,7 +47,8 @@ class AdminPostController extends AdminBaseController
             $image = $form->get('image')->getData();
             if ($image)
             {
-                $fileName = $fileManagerService->imagePostUpload($image);
+                $fileName = $fileManagerService->imagePostUpload($image); // помещаю картинку
+                $post->setImage($fileName); // добавление в БД
             }
             // реализация создания поста при клике на кнопку
             $post->setCreateAtValue();

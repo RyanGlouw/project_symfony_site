@@ -11,7 +11,7 @@ class BaseController extends AbstractController
     public function renderDefault() // рендер на главную страницу
     {
         return [
-            'title' => 'Сайт mysite '
+            'title' => 'Сайт для диплома '
         ];
     }
 
